@@ -3,7 +3,7 @@
     "Pes": [
       { "id": 1, "item": "Puppy primovakcína (DP, DHP)", "price": "17 €" },
       { "id": 2, "item": "Infekčné ochorenia (DHPPi + L)", "price": "23 €" },
-      { "id": 3, "item": "Besnota", "price": "17 €" },
+      { "id": 3, "item": "Besnota", "price": "20 €" },
       { "id": 4, "item": "Kombinovaná (infekčné + besnota)", "price": "28 €" },
       {
         "id": 5,
@@ -155,12 +155,12 @@
       { "id": 60, "item": "Kastrácia pes", "price": "od 100 € / 10 kg" },
       {
         "id": 61,
-        "item": "Kastrácia / sterilizácia mačka",
+        "item": "Kastrácia mačka",
         "price": "od 75 €"
       },
       {
         "id": 62,
-        "item": "Kastrácia / sterilizácia sučka",
+        "item": "Kastrácia sučka",
         "price": "od 150 € / 10 kg"
       }
     ]
