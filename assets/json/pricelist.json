@@ -3,7 +3,7 @@
     "Pes": [
       { "id": 1, "item": "Puppy primovakcína (DP, DHP)", "price": "17 €" },
       { "id": 2, "item": "Infekčné ochorenia (DHPPi + L)", "price": "23 €" },
-      { "id": 3, "item": "Besnota", "price": "20 €" },
+      { "id": 3, "item": "Besnota", "price": "17 €" },
       { "id": 4, "item": "Kombinovaná (infekčné + besnota)", "price": "28 €" },
       {
         "id": 5,
@@ -13,7 +13,7 @@
     ],
     "Mačka": [
       { "id": 6, "item": "Infekčné ochorenia (CVR)", "price": "25 €" },
-      { "id": 7, "item": "Besnota", "price": "17 €" },
+      { "id": 7, "item": "Besnota", "price": "20 €" },
       { "id": 8, "item": "Purevax RCPCh", "price": "35 €" }
     ],
     "Králik": [
