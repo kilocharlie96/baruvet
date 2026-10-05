@@ -1,54 +1,623 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="sk">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>BaruVet | Veterinárna ambulancia Komjatice</title>
 
-    <meta name="description" content="Hľadáte pre svojho miláčika odbornú starostlivosť a ľudský prístup? V BaruVet Komjatice sa postaráme o zdravie vášho člena rodiny - od prevencie až po diagnostiku.">
-    <meta property="og:title" content="Veterinárna ambulancia - BaruVet">
-    <meta property="og:description" content="Váš domáci miláčik si zaslúži tú najlepšiu starostlivosť. V moderne vybavenej ambulancii BaruVet v Komjaticiach pristupujeme ku každému pacientovi trpezlivo a odborne. Sme tu pre vás, keď nás potrebujete.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://baruvet.sk/">
-    <meta name="google-site-verification" content="m2QabKpdGcof_GZIKIq7RpXUX0_OhALhO2t2kQBOIH4" />
+    <meta
+      name="description"
+      content="Hľadáte pre svojho miláčika odbornú starostlivosť a ľudský prístup? V BaruVet Komjatice sa postaráme o zdravie vášho člena rodiny - od prevencie až po diagnostiku."
+    />
+    <meta property="og:title" content="Veterinárna ambulancia - BaruVet" />
+    <meta
+      property="og:description"
+      content="Váš domáci miláčik si zaslúži tú najlepšiu starostlivosť. V moderne vybavenej ambulancii BaruVet v Komjaticiach pristupujeme ku každému pacientovi trpezlivo a odborne. Sme tu pre vás, keď nás potrebujete."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://baruvet.sk/" />
+    <meta
+      name="google-site-verification"
+      content="m2QabKpdGcof_GZIKIq7RpXUX0_OhALhO2t2kQBOIH4"
+    />
 
-    <link rel="canonical" href="https://baruvet.sk/">
+    <link rel="canonical" href="https://baruvet.sk/" />
 
-    <link rel="icon" type="image/png" href="assets/logo/favicon-96x96.png">
+    <link rel="icon" type="image/png" href="assets/logo/favicon-96x96.png" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Titan+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Titan+One&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="stylesheet" href="css/modern-normalize.css">
-    <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/menu.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/pricelist.css">
-    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/modern-normalize.css" />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/general.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/menu.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/pricelist.css" />
+    <link rel="stylesheet" href="css/footer.css" />
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.js" 
-    integrity="sha384-ezjq8118wdwdRMj+nX4bevEi+cDLTbhLAeFF688VK8tPDGeLUe0WoY2MZtSla72F" 
-    crossorigin="anonymous">
-    </script>
-</head>
+    <script
+      src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.js"
+      integrity="sha384-ezjq8118wdwdRMj+nX4bevEi+cDLTbhLAeFF688VK8tPDGeLUe0WoY2MZtSla72F"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-<body>
+  <body>
     <div class="app">
-        <div id="navbar" class="navbar" hx-get="components/navbar.html" hx-trigger="load"></div>
-        <header hx-get="components/header.html" hx-trigger="load"></header>
-        <main hx-get="components/main.html" hx-trigger="load"></main>
-        <footer hx-get="components/footer.html" hx-trigger="load"></footer>
+      <!-- NAVBAR -->
+      <div id="navbar" class="navbar">
+        <!-- TODO: create common container for both hamburger icon and navber menu -->
+        <div class="hamburger-container">
+          <button class="menu-toggle" id="hamburger">
+            <svg viewBox="0 0 100 100" width="32" height="32">
+              <rect
+                class="line top"
+                width="85"
+                height="7.5"
+                x="5"
+                y="25"
+                rx="4"
+              ></rect>
+              <rect
+                class="line middle"
+                width="85"
+                height="7.5"
+                x="5"
+                y="50"
+                rx="4"
+              ></rect>
+              <rect
+                class="line bottom"
+                width="85"
+                height="7.5"
+                x="5"
+                y="75"
+                rx="4"
+              ></rect>
+            </svg>
+          </button>
+        </div>
+
+        <!-- TODO: there are two separate menu comp. for mobile and desktop. create only one menu component which can be reused in both mobile and desktop version -->
+        <ul class="menu-desktop">
+          <li>
+            <a href="#services">Služby</a>
+          </li>
+          <li>
+            <a href="#team">Tím</a>
+          </li>
+          <li>
+            <a href="#pricelist">Cenník</a>
+          </li>
+          <li>
+            <a href="#office-hours">Ordinačné hodiny</a>
+          </li>
+          <li>
+            <a href="#adress">Adresa</a>
+          </li>
+          <li>
+            <a href="#contact">Kontakt</a>
+          </li>
+        </ul>
+
+        <div class="logo-container">
+          <a
+            id="logo-btn"
+            class="logo-btn"
+            href="#services"
+            aria-label="Domov"
+            title="Domov"
+          >
+            <img src="assets/logo/logo_baruvet_white.svg" alt="Logo" />
+          </a>
+        </div>
+
+        <div class="phone-container">
+          <a
+            id="phone-btn"
+            href="tel:+421902590796"
+            aria-label="Zavolať"
+            title="Zavolať"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2
+                          19.86 19.86 0 0 1-8.63-3.07
+                          19.5 19.5 0 0 1-6-6
+                          19.86 19.86 0 0 1-3.07-8.63
+                          A2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72
+                          c.12 1.07.38 2.11.78 3.08
+                          a2 2 0 0 1-.45 2.11L8.09 10.91
+                          a16 16 0 0 0 6 6l1.99-1.99
+                          a2 2 0 0 1 2.11-.45
+                          c.97.4 2.01.66 3.08.78
+                          A2 2 0 0 1 22 16.92z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- HEADER -->
+      <header>
+        <nav class="menu-container" onclick="closeMenu()">
+          <ul class="menu">
+            <li>
+              <a href="#services" onclick="closeMenu()">Naše služby</a>
+            </li>
+            <li>
+              <a href="#team" onclick="closeMenu()">Náš tím</a>
+            </li>
+            <li>
+              <a href="#pricelist" onclick="closeMenu()">Orientačný cenník</a>
+            </li>
+            <li>
+              <a href="#office-hours" onclick="closeMenu()">Ordinačné hodiny</a>
+            </li>
+            <li>
+              <a href="#adress" onclick="closeMenu()">Adresa</a>
+            </li>
+            <li>
+              <a href="#contact" onclick="closeMenu()">Kontakt</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="header-container">
+          <h1>Veterinárna ambulancia <strong>BaruVet</strong></h1>
+          <h2>
+            Komplexná zdravotná starostlivosť pre Vašich miláčikov v novej,
+            moderne vybavenej ambulancii v Komjaticiach.
+          </h2>
+          <a href="#services">Aké služby poskytujeme?</a>
+        </div>
+      </header>
+
+      <!-- MAIN -->
+      <main>
+        <section>
+          <article id="services">
+            <ul>
+              <li class="services-item">
+                <a href="#vakcinacia">
+                  <img
+                    src="assets/svg-icons/services/injection.svg"
+                    alt="Injection icon"
+                  />
+                  <p>Vakcinácia</p>
+                </a>
+              </li>
+
+              <li class="services-item">
+                <a href="#vakcinacia">
+                  <img src="assets/svg-icons/services/bug.svg" alt="Bug icon" />
+                  <p>Ošetrenia proti vnútorným a vonkajším parazitom</p>
+                </a>
+              </li>
+
+              <li class="services-item">
+                <a href="#zakladne-ukony-a-diagnostika">
+                  <img
+                    src="assets/svg-icons/services/stethoscope.svg"
+                    alt="Stethoscope icon"
+                  />
+                  <p>Základné úkony a diagnostika</p>
+                </a>
+              </li>
+
+              <li class="services-item">
+                <a href="#vysetrenie-krvi">
+                  <img
+                    src="assets/svg-icons/services/drop.svg"
+                    alt="Drop icon"
+                  />
+                  <p>Laboratórna diagnostika</p>
+                </a>
+              </li>
+
+              <li class="services-item">
+                <a href="#zakladne-ukony-a-diagnostika">
+                  <img
+                    src="assets/svg-icons/services/ultrasound.svg"
+                    alt="Ultrasound icon"
+                  />
+                  <p>Sonografické vyšetrenie</p>
+                </a>
+              </li>
+
+              <li class="services-item">
+                <a href="#chirurgia-makkych-tkaniv">
+                  <img
+                    src="assets/svg-icons/services/sleep.svg"
+                    alt="Sleep icon"
+                  />
+                  <p>Injekčná a inhalačná anestéza</p>
+                </a>
+              </li>
+
+              <li class="services-item">
+                <a href="#chirurgia-makkych-tkaniv">
+                  <img
+                    src="assets/svg-icons/services/surgery.svg"
+                    alt="Surgery icon"
+                  />
+                  <p>Chirurgia mäkkých tkanív</p>
+                </a>
+              </li>
+            </ul>
+          </article>
+          <hr />
+          <article id="team">
+            <h2>Náš tím</h2>
+
+            <div class="member">
+              <h3>MVDr. Barbora Korgová</h3>
+              <img
+                class="profile-picture"
+                src="assets/images/barbi.webp"
+                alt="MVDr. Barbora Korgová"
+              />
+              <p class="position">
+                Interná medicína psov a mačiek, chirurgia mäkkých tkanív,
+                abdominálna sonografia
+              </p>
+              <p class="about">
+                „Štúdium som ukončila na Veterinárnej a farmaceutickej
+                univerzite v Brne v roku 2021. Počas štúdia som praxovala na
+                pracovisku v ČR a v Nových Zámkoch. Po ukončení štúdia som
+                pracovala vo veterinárnej ambulancii Uni-Vet Levice do roku
+                2023, kde som sa venovala najmä internej medicíne psov a mačiek.
+                Následne som prestúpila na Veterinárnu polikliniku v Nových
+                zámkoch, kde som sa začala venovať aj chirurgii mäkkých tkanív.
+                V súčasnej dobe som spoluzakladateľkou veterinárnej ambulancie
+                BaruVet.“
+              </p>
+
+              <div class="dropdown-header">
+                <button class="dropdown-btn">
+                  Absolvované semináre a wokshopy
+                </button>
+                <span>></span>
+              </div>
+
+              <div class="dropdown-content">
+                <ol class="workshops">
+                  <li>
+                    <div>2020 Vetino Academy, Jaggy Praha</div>
+                    <p>
+                      Gastrointestinálne ochorenia z pohľadu internej medicíny,
+                      chirurgie a neurológie
+                    </p>
+                  </li>
+                  <li>
+                    <div>2022 Vetmeeting Brno</div>
+                    <p>
+                      Akútne stavy dutiny brušnej, hryzné poranenia, BOAS,
+                      MVDr.Jan Beránek DipECVS CertCAAPR MRCVS, akútne stavy v
+                      neurológii, traumy mozgu, MVDr.Aleš Tomek DipECVN
+                    </p>
+                  </li>
+                  <li>
+                    <div>2023 Workshop RTG dutiny hrudnej, Bratislava</div>
+                    <p>MVDr.Pavel Proks,Ph.D.</p>
+                  </li>
+                  <li>
+                    <div>2023 VETfair, Hradec Králové</div>
+                    <p>
+                      Dermatológia a parazitológia malých zvierat,
+                      Prof.MVDr.David Modrý,Ph.D. a členovia ČAVD
+                    </p>
+                  </li>
+                  <li>
+                    <div>2023 Upskill.vet</div>
+                    <p>
+                      Akútna (pohotovostná) chirurgia, Mark Longley BVM&S MSc
+                      GPCertSAS Dipl.ECVS MRCVS
+                    </p>
+                  </li>
+                  <li>
+                    <div>2024 EM Medical s.r.o, Moravský Svätý Ján</div>
+                    <p>USG vyšetrenie brušnej dutiny, MVDr. Bc. Klaudia Duba</p>
+                  </li>
+                  <li>
+                    <div>2024 Pharmacopola, Žiar nad Hronom</div>
+                    <p>
+                      Praktický sonografický workshop abdomenu, MVDr. Matúš
+                      Pagáč, MVDr. Carlos Agudelo Ramiréz,PhD., MVDr. Peter
+                      Nemec
+                    </p>
+                  </li>
+                  <li>
+                    <div>2025 EM Medical s.r.o, Moravský Svätý Ján</div>
+                    <p>
+                      USG vyšetrenie brušnej dutiny pre pokročilých, odber
+                      bioptátov a USG krku, miazgových uzlín, MVDr. Bc. Klaudia
+                      Duba
+                    </p>
+                  </li>
+                </ol>
+              </div>
+            </div>
+
+            <hr />
+
+            <div class="member">
+              <h3>Ing. Katarína Komová</h3>
+              <img
+                class="profile-picture"
+                src="assets/images/katka.webp"
+                alt="Ing. Katarína Komová"
+              />
+              <p class="position">Veterinárna sestra</p>
+              <p class="about">
+                „V roku 2014 som ukončila bakalárske štúdium kynológie na UVLF,
+                následne som pokračovala v inžinierskom štúdiu chovateľstva na
+                SPU. Po škole som vykonávala prax vo veterinárnej ambulancii v
+                Šuranoch. Viac ako 5 rokov som sa venovala práci s dravcami -
+                chov, tréning, letové ukážky pre verejnosť. V rokoch 2022-2025
+                som pracovala na Veterinárnej poliklinike v Nových Zámkoch ako
+                veterinárna sestra. V súčasnej dobe som spoluzakladateľkou
+                veterinárnej ambulancie BaruVet.“
+              </p>
+
+              <div class="dropdown-header">
+                <button class="dropdown-btn">
+                  Absolvované semináre a wokshopy
+                </button>
+                <span>></span>
+              </div>
+
+              <div class="dropdown-content">
+                <ol class="workshops">
+                  <li>
+                    <div>2024 Nová Veterinária, Nitra</div>
+                    <p>
+                      Základy osobného a time manažmentu, základy efektívnej
+                      komunikácie, triáž, sesterské kliniky, základy marketingu
+                      a predaja
+                    </p>
+                  </li>
+                  <li>
+                    <div>2024 Jarný kongres, Senec</div>
+                    <p>
+                      Laboratórne procedúry v praxi, základné ošetrovateľské
+                      úkony, manipulácia a fixácia zvierat, hodnotenie rizika,
+                      ochrana a bezpečnosť práce
+                    </p>
+                  </li>
+                  <li>
+                    <div>2024 Nová Veterinária, Nitra</div>
+                    <p>
+                      Starostlivosť o hospitalizovaného pacienta, infúzie a ich
+                      kalkulácie, príprava a asistencia na diagnostických
+                      zobrazovacích technikách, komunikácia s majiteľom, welfare
+                      zvierat v každodennej praxi
+                    </p>
+                  </li>
+                  <li>
+                    <div>2024 Upskill.vet, Bratislava</div>
+                    <p>
+                      Praktický kurz Veterinárne sestry - N.Waring - BSc (Hons)
+                      RVN HE Dip CVN HE Dip AVN HE Dip Ed QTLD, P. Hill - RVN
+                      VTS
+                    </p>
+                  </li>
+                  <li>
+                    <div>Jarný kongres 2025, Senec</div>
+                    <p>
+                      Príprava pacienta na chirurgický zákrok, inštrumentárium,
+                      dezinfekcia, asepsia, asistencia pri chirurgických
+                      zákrokoch, postoperačná starostlivosť
+                    </p>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </article>
+          <hr />
+          <article id="pricelist">
+            <div id="pricelist-vue">
+              <h2>Orientačný cenník</h2>
+              <p>
+                <small
+                  >Cena pre konkrétneho pacienta je upresnená po
+                  vyšetrení.</small
+                >
+              </p>
+
+              <section
+                class="pricelist-section"
+                v-for="(groups, sectionName) in pricelist"
+                :key="sectionName"
+              >
+                <h3
+                  :id="sectionName
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+        .replace(/\s+/g, '-')"
+                >
+                  {{ sectionName }}
+                </h3>
+
+                <div v-for="(items, groupName) in groups" :key="groupName">
+                  <h4 v-if="groupName">{{ groupName }}</h4>
+
+                  <ul>
+                    <li
+                      class="pricelist-row"
+                      v-for="row in items"
+                      :key="row.id"
+                    >
+                      {{ row.item }}
+                      <small class="price">{{ row.price }}</small>
+                    </li>
+                  </ul>
+                </div>
+              </section>
+            </div>
+
+            <script>
+              const { createApp, ref, onMounted } = Vue;
+
+              createApp({
+                setup() {
+                  const pricelist = ref({});
+
+                  onMounted(async () => {
+                    const response = await fetch("assets/json/pricelist.json");
+                    pricelist.value = await response.json();
+                  });
+
+                  return { pricelist };
+                },
+              }).mount("#pricelist-vue");
+            </script>
+          </article>
+          <hr />
+          <article>
+            <h2 id="office-hours">Ordinačné hodiny</h2>
+            <table class="office-hours">
+              <thead>
+                <tr>
+                  <th scope="col">Deň</th>
+                  <th scope="col">Dopoludnie</th>
+                  <th scope="col">Popoludnie</th>
+                </tr>
+              </thead>
+
+              <tr>
+                <td>Pondelok</td>
+                <td>Zatvorené</td>
+                <td>Zatvorené</td>
+              </tr>
+              <tr>
+                <td>Utorok</td>
+                <td>8:30 - 13:00</td>
+                <td>14:00 - 18:00</td>
+              </tr>
+              <tr>
+                <td>Streda</td>
+                <td>8:30 - 13:00</td>
+                <td>14:00 - 16:30</td>
+              </tr>
+              <tr>
+                <td>Štvrtok</td>
+                <td>8:30 - 13:00</td>
+                <td>14:00 - 16:30</td>
+              </tr>
+              <tr>
+                <td>Piatok</td>
+                <td>8:30 - 13:00</td>
+                <td>14:00 - 16:30</td>
+              </tr>
+              <tr>
+                <td>Sobota</td>
+                <td>9:00 - 12:00</td>
+                <td>Zatvorené</td>
+              </tr>
+              <tr>
+                <td>Nedeľa</td>
+                <td>Zatvorené</td>
+                <td>Zatvorené</td>
+              </tr>
+            </table>
+          </article>
+
+          <article id="adress">
+            <h2>Adresa</h2>
+            <p>Vinohradská 1170/89</p>
+            <p>941 06 Komjatice</p>
+
+            <a
+              class="navigate"
+              href="https://www.google.com/maps/dir/?api=1&destination=Veterinárna+ambulancia+-+BaruVet+Komjatice&destination_place_id=ChIJPf5dXAAXa0cR42kL-nTGBF8"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg viewBox="0 0 24 24" class="pin-svg">
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 
+             9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 
+             6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 
+             11.5 12 11.5z"
+                />
+              </svg>
+              <span>Navigovať</span>
+            </a>
+            <figure>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1966.9349897678565!2d18.16367519612557!3d48.16002916612985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476b17005c5dfe3d%3A0x5f04c674fa0b69e3!2sVeterin%C3%A1rna%20ambulancia%20-%20BaruVet!5e1!3m2!1ssk!2ssk!4v1770305247597!5m2!1ssk!2ssk"
+                width="600"
+                height="450"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </figure>
+          </article>
+
+          <article id="contact">
+            <h2>Kontakt</h2>
+            <a href="tel:+421902590796" aria-label="volať">0902 590 796</a>
+            <a href="mailto:info@baruvet.sk">info@baruvet.sk</a>
+          </article>
+        </section>
+      </main>
+
+      <footer>
+        <section class="socials">
+          <a
+            href="https://www.instagram.com/baruvet_"
+            target="_blank"
+            rel="me nofollow noopener noreferrer"
+          >
+            <img src="assets/svg-icons/socials/instagram.svg" alt="Instagram" />
+          </a>
+          <a
+            href="https://www.facebook.com/BaruVet"
+            target="_blank"
+            rel="me nofollow noopener noreferrer"
+          >
+            <img src="assets/svg-icons/socials/facebook.svg" alt="Facebook" />
+          </a>
+        </section>
+        <hr />
+
+        <p class="cookies">
+          <small
+            >Táto stránka používa len nevyhnutné cookies, potrebné na
+            zabezpečenie jej správneho fungovania.</small
+          >
+        </p>
+
+        <p class="copyright"><small>&copy; BaruVet 2025</small></p>
+      </footer>
     </div>
 
     <script src="js/hamburgerToggle.js"></script>
     <script src="js/menuToggle.js"></script>
     <script src="js/navbarResize.js"></script>
     <script src="js/toggleWorkshops.js"></script>
-</body>
+  </body>
 </html>
