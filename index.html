@@ -36,6 +36,7 @@
     <link rel="stylesheet" href="css/modern-normalize.css" />
     <link rel="stylesheet" href="css/variables.css" />
     <link rel="stylesheet" href="css/general.css" />
+    <link rel="stylesheet" href="css/warning.css" />
     <link rel="stylesheet" href="css/navbar.css" />
     <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/menu.css" />
@@ -53,6 +54,24 @@
 
   <body>
     <div class="app">
+      <!-- WARNING -->
+      <div class="warning">
+        <div class="warning-content">
+          <div class="warning-header">
+            <p><strong>Oznam!</strong></p>
+            <p>
+              <strong>Zmena ordinačných hodín<br />(6.10. - 10.10.)</strong>
+            </p>
+          </div>
+          <p>Utorok: 8:30 - 18:00</p>
+          <p>Streda: 8:30 - 16:30</p>
+          <p><strong>Štvrtok: Dovolenka</strong></p>
+          <p><strong>Piatok: Dovolenka</strong></p>
+          <p><strong>Sobota: Dovolenka</strong></p>
+          <button class="btn-agree" type="button">Rozumiem</button>
+        </div>
+      </div>
+
       <!-- NAVBAR -->
       <div id="navbar" class="navbar">
         <!-- TODO: create common container for both hamburger icon and navber menu -->
@@ -619,5 +638,6 @@
     <script src="js/menuToggle.js"></script>
     <script src="js/navbarResize.js"></script>
     <script src="js/toggleWorkshops.js"></script>
+    <script src="js/closeWarning.js"></script>
   </body>
 </html>
